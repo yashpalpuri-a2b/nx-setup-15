@@ -24,6 +24,23 @@ These targets are either [inferred automatically](https://nx.dev/concepts/inferr
 
 [More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
+## Development Commands
+
+To start the development server for the Next.js web application, you can use any of the following commands:
+
+```sh
+# Shorthand syntax
+npx nx dev web
+
+# Explicit syntax
+npx nx run web:dev
+
+# Direct Next.js command
+cd apps/web && npx next dev
+```
+
+> **Note:** `npx run dev` is not a valid command for Nx projects. Always use the correct Nx command syntax shown above.
+
 ## Versioning and releasing
 
 To version and release the library use

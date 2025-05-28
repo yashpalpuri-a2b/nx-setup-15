@@ -20,9 +20,8 @@ export default function DashboardPage() {
     setTimestamp(new Date().toLocaleString());
   }, []);
 
-  // In a real application, this would come from environment variables
-  // or a configuration service
-  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || 'YOUR_API_KEY_HERE';
+  // Get the Google Maps API key from environment variables
+  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
 
   // Sample marker data for the map
   const vehicleMarkers: MarkerData[] = [

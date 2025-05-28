@@ -138,10 +138,12 @@ export function MapContainer({
         height,
         width,
         border: `1px solid ${theme.primaryColor}20`,
+        position: 'relative',
       }}
     >
       <GoogleMap
         mapContainerClassName="w-full h-full"
+        mapContainerStyle={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0 }}
         center={center}
         zoom={zoom}
         onLoad={onLoad}

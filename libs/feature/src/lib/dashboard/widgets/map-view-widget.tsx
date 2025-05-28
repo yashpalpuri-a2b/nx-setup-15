@@ -73,17 +73,22 @@ export function MapViewWidget({
       className={className}
     >
       {isApiKeyValid ? (
-        <div style={{ height }}>
-          <GoogleMapsProvider 
-            apiKey={apiKey}
-          >
-            <MapContainer
-              height="100%"
-              markers={markers}
-              center={center}
-              zoom={zoom}
-            />
-          </GoogleMapsProvider>
+        <div className="flex flex-col" style={{ height }}>
+          <div style={{ height: "calc(100% - 24px)", width: "100%" }}>
+            <GoogleMapsProvider
+              apiKey={apiKey}
+              onError={handleMapError}
+            >
+              <MapContainer
+                height="100%"
+                width="100%"
+                markers={markers}
+                center={center}
+                zoom={zoom}
+                onMapError={handleMapError}
+              />
+            </GoogleMapsProvider>
+          </div>
           <p className="mt-2 text-sm text-gray-500">
             Click on a marker to see more information.
           </p>

@@ -27,7 +27,8 @@ const nextConfig = {
 
   // Environment variables that will be available at build time
   // These are in addition to the ones in .env.local
-  env: {
+  env: 
+  {
     NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
   },
   

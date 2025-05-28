@@ -14,7 +14,20 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-workspace/data-access": ["libs/data-access/src/index.ts"],
+      "@nx-workspace/data-access/server": ["libs/data-access/src/server.ts"],
+      "@nx-workspace/feature": ["libs/feature/src/index.ts"],
+      "@nx-workspace/feature/server": ["libs/feature/src/server.ts"],
+      "@nx-workspace/multi-tenant": ["libs/multi-tenant/src/index.ts"],
+      "@nx-workspace/multi-tenant/server": ["libs/multi-tenant/src/server.ts"],
+      "@nx-workspace/shared": ["libs/shared/src/index.ts"],
+      "@nx-workspace/shared/server": ["libs/shared/src/server.ts"],
+      "@nx-workspace/ui": ["libs/ui/src/index.ts"],
+      "@nx-workspace/ui/server": ["libs/ui/src/server.ts"],
+      "@nx-workspace/util": ["libs/util/src/index.ts"],
+      "@nx-workspace/util/server": ["libs/util/src/server.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

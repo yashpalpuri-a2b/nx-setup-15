@@ -1,118 +1,71 @@
-import { NextResponse } from 'next/server';
-
-// Define user type
-type User = {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-};
+import { NextRequest, NextResponse } from 'next/server';
 
 // Mock user data
-const users: User[] = [
-  { id: '1', name: 'John Doe', email: 'john@example.com', role: 'user' },
-  { id: '2', name: 'Jane Smith', email: 'jane@example.com', role: 'admin' },
-  { id: '3', name: 'Bob Johnson', email: 'bob@example.com', role: 'user' },
+const users = [
+  {
+    id: 'user-1',
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    role: 'Administrator'
+  },
+  {
+    id: 'user-2',
+    name: 'Jane Smith',
+    email: 'jane.smith@example.com',
+    role: 'Manager'
+  },
+  {
+    id: 'user-3',
+    name: 'Robert Johnson',
+    email: 'robert.johnson@example.com',
+    role: 'Operator'
+  },
+  {
+    id: 'user-4',
+    name: 'Emily Davis',
+    email: 'emily.davis@example.com',
+    role: 'Driver'
+  },
+  {
+    id: 'user-5',
+    name: 'Michael Wilson',
+    email: 'michael.wilson@example.com',
+    role: 'Support'
+  }
 ];
 
-// Authentication placeholder - would be replaced with actual auth implementation
-const checkAuth = (request: Request) => {
-  const authHeader = request.headers.get('authorization');
+export async function GET(request: NextRequest) {
+  // In a real app, you would fetch users from a database
+  // and implement pagination, filtering, etc.
   
-  // This is a placeholder - in a real app, you'd validate JWT tokens, session cookies, etc.
-  return {
-    isAuthenticated: !!authHeader,
-    isAdmin: authHeader?.includes('admin') ?? false,
-    user: authHeader ? { id: '1', name: 'Authenticated User' } : null
-  };
-};
-
-// GET handler to fetch all users
-export async function GET(request: Request) {
-  // Authentication check
-  const { isAuthenticated, isAdmin } = checkAuth(request);
+  // Add a small delay to simulate network latency
+  await new Promise(resolve => setTimeout(resolve, 500));
   
-  // Optional: Restrict access based on authentication
-  // In a real app, you might want to check authentication before returning sensitive data
-  if (!isAuthenticated) {
-    return NextResponse.json(
-      { error: 'Authentication required to access users' },
-      { status: 401 }
-    );
-  }
-
-  // Optional: Role-based access control
-  // Restrict certain operations to admin users
-  // if (!isAdmin) {
-  //   return NextResponse.json(
-  //     { error: 'Admin access required' },
-  //     { status: 403 }
-  //   );
-  // }
-
-  try {
-    // For demo purposes, we'll return all users
-    // In a real app, you might want to paginate results
-    return NextResponse.json({
-      users,
-      count: users.length,
-      timestamp: new Date().toISOString()
-    });
-  } catch (error) {
-    console.error('Error fetching users:', error);
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    );
-  }
+  return NextResponse.json({
+    users,
+    count: users.length,
+    timestamp: new Date().toISOString()
+  });
 }
 
-// POST handler to create a new user
-export async function POST(request: Request) {
-  // Authentication check
-  const { isAuthenticated, isAdmin } = checkAuth(request);
-  
-  // Require authentication for creating users
-  if (!isAuthenticated) {
-    return NextResponse.json(
-      { error: 'Authentication required to create users' },
-      { status: 401 }
-    );
-  }
-
+export async function POST(request: NextRequest) {
   try {
-    // Parse the request body
-    const data = await request.json();
+    const newUser = await request.json();
     
-    // Validate required fields
-    if (!data.name || !data.email) {
-      return NextResponse.json(
-        { error: 'Name and email are required fields' },
-        { status: 400 }
-      );
-    }
-    
-    // Create a new user (in a real app, this would be saved to a database)
-    const newUser: User = {
-      id: (users.length + 1).toString(),
-      name: data.name,
-      email: data.email,
-      role: data.role || 'user', // Default role
+    // In a real app, you would validate the input and save to a database
+    const user = {
+      id: `user-${users.length + 1}`,
+      ...newUser
     };
     
-    // Add to our mock users array (this is just for demonstration)
-    // In a real app, you would save to a database
-    users.push(newUser);
+    // Add the new user to our mock data
+    users.push(user);
     
-    return NextResponse.json(
-      { message: 'User created successfully', user: newUser },
-      { status: 201 }
-    );
+    return NextResponse.json({ user }, { status: 201 });
   } catch (error) {
-    console.error('Error creating user:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
+      { error: 'Failed to create user' },
+      { status: 400 }
     );
   }
 }

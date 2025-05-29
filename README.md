@@ -1,8 +1,6 @@
-# NxWorkspace
+# A2B Phoenix UI
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
-
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+<a alt="A2B logo" href="https://a2baustralia.com/" target="_blank" rel="noreferrer"><img src="https://a2baustralia.com/images/a2b.gif" width="45"></a>
 
 [Learn more about this workspace setup and its capabilities](https://nx.dev/getting-started/tutorials/npm-workspaces-tutorial?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
 

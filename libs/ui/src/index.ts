@@ -1,5 +1,14 @@
+// Security: Explicit exports prevent accidental exposure of internal utilities
+// Performance: Tree-shaking friendly exports
+
 // Components
-export * from './lib/button';
+export * from './components'
 
 // Utils
-export * from './lib/utils'; 
+export * from './utils'
+
+// Hooks (future)
+export * from './hooks'
+
+// Types (future)
+export * from './types' 

@@ -12,7 +12,8 @@
     "isolatedModules": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@nx-setup/ui": ["../../libs/ui/src/index.ts"]
     },
     "lib": [
       "dom",

@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button';
+import { Button } from '@nx-setup/ui';
 
 export default function Home() {
   return (
@@ -6,14 +6,14 @@ export default function Home() {
       <div className="container mx-auto py-16">
         <div className="text-center space-y-8">
           <h1 className="text-4xl font-bold text-foreground">
-            Task 2: ShadcnUI Base Setup ✅
+            Task 3: UI Library Creation ✅
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            ShadcnUI is now configured and working with our Nx monorepo setup!
+            UI Library is now created following Nx's domain-based approach (libs/ui/)!
           </p>
           
           <div className="space-y-6">
-            <h2 className="text-2xl font-semibold text-foreground">ShadcnUI Button Variants</h2>
+            <h2 className="text-2xl font-semibold text-foreground">UI Library Button Components</h2>
             
             <div className="flex flex-wrap justify-center gap-4">
               <Button>Default</Button>
@@ -33,20 +33,22 @@ export default function Home() {
 
           <div className="bg-card p-6 rounded-lg border max-w-2xl mx-auto">
             <h3 className="text-lg font-semibold text-card-foreground mb-4">
-              ✅ Task 2 Complete - What's Ready:
+              ✅ Task 3 Complete - UI Library Structure:
             </h3>
             <ul className="text-left space-y-2 text-card-foreground">
-              <li>• ShadcnUI components.json configured</li>
-              <li>• Required dependencies installed (@radix-ui, class-variance-authority)</li>
-              <li>• Path aliases (@/) configured for imports</li>
-              <li>• Button component working with all variants</li>
-              <li>• Ready for Task 3: UI Library Creation</li>
+              <li>• Created libs/ui/ following domain-based approach</li>
+              <li>• Button component moved to @nx-setup/ui library</li>
+              <li>• Utils (cn function) moved to UI library</li>
+              <li>• TypeScript path mapping configured (@nx-setup/ui)</li>
+              <li>• No bundler (Vite) - using TypeScript compilation only</li>
+              <li>• SWC Jest configuration for better performance</li>
+              <li>• Ready for Task 4: Basic Component Development</li>
             </ul>
           </div>
 
           <div className="bg-muted p-4 rounded-lg max-w-2xl mx-auto">
             <p className="text-muted-foreground">
-              <strong>Next:</strong> Task 3 - Create UI Library with Domain-Based Structure (libs/ui/)
+              <strong>Next:</strong> Task 4 - Add more basic components (Input, Card, etc.)
             </p>
           </div>
         </div>

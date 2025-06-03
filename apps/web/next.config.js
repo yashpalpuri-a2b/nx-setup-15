@@ -13,7 +13,13 @@ const { composePlugins, withNx } = require('@nx/next');
 // };
 
 const nextConfig = {
-  images: { unoptimized: true } // for static‐exported images
+  images: { unoptimized: true },
+  output: 'standalone',
+  nx: {
+    // Set this to true if you would like to to use SVGR
+    // See: https://github.com/gregberge/svgr
+    svgr: false,
+  },
 }
 
 const plugins = [

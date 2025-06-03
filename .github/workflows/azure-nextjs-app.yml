@@ -38,5 +38,4 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "apps/web"         # your Next.js source
-          api_location: \"./\"
           output_location: "dist/apps/web/.next/standalone"

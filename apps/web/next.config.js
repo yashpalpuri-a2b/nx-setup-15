@@ -13,8 +13,9 @@ const { composePlugins, withNx } = require('@nx/next');
 // };
 
 const nextConfig = {
+  output: 'export',
+  trailingSlash: true,
   images: { unoptimized: true },
-  output: 'standalone',
   nx: {
     // Set this to true if you would like to to use SVGR
     // See: https://github.com/gregberge/svgr

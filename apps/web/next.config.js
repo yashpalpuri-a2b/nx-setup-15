@@ -6,11 +6,17 @@ const { composePlugins, withNx } = require('@nx/next');
 /**
  * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  **/
+// const nextConfig = {
+//   // Use this to set Nx-specific options
+//   // See: https://nx.dev/recipes/next/next-config-setup
+//   nx: {},
+// };
+
 const nextConfig = {
-  // Use this to set Nx-specific options
-  // See: https://nx.dev/recipes/next/next-config-setup
-  nx: {},
-};
+  output: 'export',          // <-- force `next export`
+  trailingSlash: true,       // optional, but common for SWA
+  images: { unoptimized: true } // for static‐exported images
+}
 
 const plugins = [
   // Add more Next.js plugins to this list if needed.

@@ -13,8 +13,6 @@ const { composePlugins, withNx } = require('@nx/next');
 // };
 
 const nextConfig = {
-  output: 'export',          // <-- force `next export`
-  trailingSlash: true,       // optional, but common for SWA
   images: { unoptimized: true } // for static‐exported images
 }
 

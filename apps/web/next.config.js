@@ -14,12 +14,12 @@ const { composePlugins, withNx } = require('@nx/next');
 
 const nextConfig = {
   images: { unoptimized: true },
-    nx: {
+  nx: {
     // Set this to true if you would like to to use SVGR
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
-}
+};
 
 const plugins = [
   // Add more Next.js plugins to this list if needed.

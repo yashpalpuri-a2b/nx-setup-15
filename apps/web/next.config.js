@@ -1,6 +1,5 @@
 //@ts-check
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { composePlugins, withNx } = require('@nx/next');
 
 /**
@@ -13,13 +12,15 @@ const { composePlugins, withNx } = require('@nx/next');
 // };
 
 const nextConfig = {
+  output: 'export',
+  // When using static export every page becomes /index.html under its route.
+  // trailingSlash keeps the public URLs consistent ("/about/")
+  trailingSlash: true,
   images: { unoptimized: true },
-    nx: {
-    // Set this to true if you would like to to use SVGR
-    // See: https://github.com/gregberge/svgr
+  nx: {
     svgr: false,
   },
-}
+};
 
 const plugins = [
   // Add more Next.js plugins to this list if needed.

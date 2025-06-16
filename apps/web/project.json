@@ -5,6 +5,20 @@
   "projectType": "application",
   "tags": [],
   "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/web/{app,pages,components,src}/**/*.{ts,tsx,js,jsx}",
+          "!apps/web/.next/**"
+        ]
+      }
+    },
+    "dev": {
+      "executor": "@nx/next:dev",
+      "options": { "root": "apps/web" }
+    },
     "build": {
       "executor": "@nx/next:build",
       "outputs": ["{options.outputPath}"],
@@ -25,12 +39,10 @@
         "buildTarget": "web:build"
       }
     },
-    "export": {
-      "executor": "@nx/next:export",
-      "outputs": ["{options.outputPath}"],
+    "static": {
+      "executor": "@nx/workspace:run-commands",
       "options": {
-        "buildTarget": "web:build",
-        "outputPath": "dist/apps/web/export"
+        "command": "nx run web:build --configuration=production"
       }
     }
   }

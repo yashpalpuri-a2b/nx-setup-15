@@ -1,0 +1,15 @@
+{
+    "globalHeaders": {
+      "X-Frame-Options": "DENY",
+      "X-Content-Type-Options": "nosniff"
+    },
+    "routes": [
+      {
+        "route": "/api/*",
+        "allowedRoles": ["anonymous"],
+        "rewrite": "https://backend-fleet-api.example.com/api/:*"
+      },
+      { "route": "/*", "serve": "/index.html", "statusCode": 200 }
+    ]
+  }
+  

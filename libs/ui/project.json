@@ -5,6 +5,14 @@
   "projectType": "library",
   "tags": ["type:ui"],
   "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+      "lintFilePatterns": [
+       "libs/ui/src/**/*.{ts,tsx,js,jsx}"
+        ]
+      },
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
@@ -23,4 +31,5 @@
       }
     }
   }
-} 
+}
+}

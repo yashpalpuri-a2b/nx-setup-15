@@ -9,7 +9,7 @@ export default function Home() {
             Task 3: UI Library Creation ✅
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            UI Library is now created following Nx's domain-based approach (libs/ui/)!
+            UI Library is now created following Nx&apos;s domain-based approach (libs/ui/)!
           </p>
           
           <div className="space-y-6">

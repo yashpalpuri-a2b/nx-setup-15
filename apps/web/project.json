@@ -39,17 +39,11 @@
         "buildTarget": "web:build"
       }
     },
-    "export": {
-      "executor": "@nx/next:export",
-      "outputs": ["{options.outputPath}"],
+    "static": {
+      "executor": "@nx/workspace:run-commands",
       "options": {
-        "buildTarget": "web:build",
-        "outputPath": "dist/apps/web/export"
+        "command": "nx run web:build --configuration=production"
       }
-    },
-    "serve-static": {
-      "executor": "@nx/next:serve-static",
-      "options": { "buildTarget": "web:export" }
     }
   }
 }

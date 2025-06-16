@@ -1,6 +1,5 @@
 //@ts-check
 
- 
 const { composePlugins, withNx } = require('@nx/next');
 
 /**
@@ -13,6 +12,10 @@ const { composePlugins, withNx } = require('@nx/next');
 // };
 
 const nextConfig = {
+  output: 'export',
+  // When using static export every page becomes /index.html under its route.
+  // trailingSlash keeps the public URLs consistent ("/about/")
+  trailingSlash: true,
   images: { unoptimized: true },
   nx: {
     svgr: false,
